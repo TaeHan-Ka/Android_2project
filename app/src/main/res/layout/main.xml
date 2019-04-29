@@ -5,64 +5,67 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="write"
     tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        app:srcCompat="@drawable/도움"
+        android:layout_height="200dp"
         android:scaleType="centerCrop"
+        android:src="@drawable/he"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteY="-2dp"/>
 
     <ImageButton
-        android:id="@+id/imageButton5"
+        android:id="@+id/setting"
         android:layout_width="180dp"
         android:layout_height="180dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginBottom="24dp"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton6"
+        app:layout_constraintBottom_toTopOf="@+id/message"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/설정" />
+        android:onClick="onClick"
+        app:srcCompat="@drawable/se" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/call"
         android:layout_width="180dp"
         android:layout_height="180dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="24dp"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton4"
+        android:onClick="onClick"
+        app:layout_constraintBottom_toTopOf="@+id/map"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/전화" />
+        app:srcCompat="@drawable/ca" />
 
     <ImageButton
-        android:id="@+id/imageButton6"
+        android:id="@+id/message"
         android:layout_width="180dp"
         android:layout_height="180dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginBottom="16dp"
         android:scaleType="centerCrop"
+        android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/메시지" />
+        app:srcCompat="@drawable/me" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/map"
         android:layout_width="180dp"
         android:layout_height="180dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:scaleType="centerCrop"
+        android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/지도" />
+        app:srcCompat="@drawable/ma" />
 
 </android.support.constraint.ConstraintLayout>

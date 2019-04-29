@@ -10,8 +10,6 @@ public class MainActivity  extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.numlist);
-
-        Button insert = (Button)findViewById(R.id.insert);
     }
 
     @Override

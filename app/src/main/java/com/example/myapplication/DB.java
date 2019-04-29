@@ -91,7 +91,7 @@ public class DB extends Activity {
                 //void android.app.Activity.startManagingCursor(Cursor c)
                 //startManagingCursor(cursor);
 
-                Intent intent = new Intent(getApplicationContext(),Numberlist.class);   // 완료 후 다음 위치
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);   // 완료 후 다음 위치
                 startActivity(intent);
             }
         });

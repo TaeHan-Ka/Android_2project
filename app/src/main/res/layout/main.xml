@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/sound"
         android:layout_marginTop="40dp"
         android:layout_marginLeft="55dp"
         android:layout_width="300dp"
@@ -78,7 +78,7 @@
     </TableRow>
 
     <Button
-        android:id="@+id/sound"
+        android:id="@+id/back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Button" />

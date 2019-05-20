@@ -76,5 +76,10 @@
             tools:layout_editor_absoluteX="223dp"
             tools:layout_editor_absoluteY="523dp" />
     </TableRow>
+     <Button
+        android:id="@+id/sound"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
 
 </LinearLayout>

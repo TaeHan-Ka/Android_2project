@@ -31,6 +31,10 @@ public class Main extends AppCompatActivity {
                 intent = new Intent(getApplicationContext(),sms.class);   // 완료 후 다음 위치
                 startActivity(intent);
                 break;
+            case R.id.sound:
+                SoundPool = MediaPlayer.create(this, R.raw.sound);
+                ((MediaPlayer) SoundPool).start();
+                break; 
         }
 //                Intent intent = new Intent(getApplicationContext(),DB.class);   // 완료 후 다음 위치
 //                startActivity(intent);

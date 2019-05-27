@@ -27,15 +27,15 @@ public class map extends AppCompatActivity implements OnMapReadyCallback {
         @Override
         public void onMapReady ( final GoogleMap map){
 
-        LatLng SEOUL = new LatLng(37.56, 126.97);
+        LatLng Gunsan = new LatLng(35.945239, 126.682153);
 
         MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(SEOUL);
-        markerOptions.title("서울");
-        markerOptions.snippet("한국의 수도");
+        markerOptions.position(Gunsan);
+        markerOptions.title("군산대");
+        markerOptions.snippet("국립대");
         map.addMarker(markerOptions);
 
-        map.moveCamera(CameraUpdateFactory.newLatLng(SEOUL));
+        map.moveCamera(CameraUpdateFactory.newLatLng(Gunsan));
         map.animateCamera(CameraUpdateFactory.zoomTo(10));
 
     }

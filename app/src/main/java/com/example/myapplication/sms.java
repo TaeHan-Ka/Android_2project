@@ -1,7 +1,6 @@
 package com.example.myapplication;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.SmsManager;
@@ -14,8 +13,6 @@ public class sms  extends AppCompatActivity implements View.OnClickListener {
     Button buttonSend;
     EditText textPhoneNo;
     EditText textSMS;
-    SQLiteDatabase db;
-    dbHelper helper;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +21,7 @@ public class sms  extends AppCompatActivity implements View.OnClickListener {
         buttonSend = (Button) findViewById(R.id.send);
         textPhoneNo = (EditText) findViewById(R.id.editTextPhoneNo);
         textSMS = (EditText) findViewById(R.id.editTextSMS);
+
     }
     public void onClick(View view) {
         switch (view.getId()){

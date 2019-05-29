@@ -75,12 +75,26 @@
             android:layout_marginLeft="12.5dp"
             tools:layout_editor_absoluteX="223dp"
             tools:layout_editor_absoluteY="523dp" />
+
     </TableRow>
 
-    <Button
-        android:id="@+id/back"
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:layout_marginTop="30dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/backon"
+            android:layout_width="178dp"
+            android:layout_height="wrap_content"
+            android:text="BackOn" />
+
+        <Button
+            android:id="@+id/backoff"
+            android:layout_width="168dp"
+            android:layout_height="match_parent"
+            android:text="BackOff" />
+    </TableRow>
 
 </LinearLayout>

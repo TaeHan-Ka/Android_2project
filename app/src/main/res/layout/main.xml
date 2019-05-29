@@ -5,16 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#fff"
     tools:context=".MainActivity">
 
     <ImageButton
         android:id="@+id/sound"
-        android:layout_marginTop="40dp"
+        android:layout_width="317dp"
+        android:layout_height="171dp"
         android:layout_marginLeft="55dp"
-        android:layout_width="300dp"
-        android:layout_height="160dp"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/police"
+        android:layout_marginTop="40dp"
+        android:background="#00ff00000"
+        android:scaleType="center"
+        app:srcCompat="@drawable/se"
         tools:layout_editor_absoluteX="55dp"
         tools:layout_editor_absoluteY="136dp" />
 
@@ -28,6 +30,7 @@
             android:id="@+id/setting"
             android:layout_width="160dp"
             android:layout_height="160dp"
+            android:background="#00ff0000"
             android:gravity="center"
             android:onClick="onClick"
             android:scaleType="centerCrop"
@@ -40,6 +43,7 @@
             android:id="@+id/call"
             android:layout_width="160dp"
             android:layout_height="160dp"
+            android:background="#00ff0000"
             android:onClick="onClick"
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/call"
@@ -58,6 +62,7 @@
             android:id="@+id/message"
             android:layout_width="160dp"
             android:layout_height="160dp"
+            android:background="#00ff0000"
             android:onClick="onClick"
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/message"
@@ -69,6 +74,7 @@
             android:id="@+id/map"
             android:layout_width="160dp"
             android:layout_height="160dp"
+            android:background="#00ff0000"
             android:onClick="onClick"
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/map"
@@ -86,13 +92,13 @@
 
         <Button
             android:id="@+id/backon"
-            android:layout_width="178dp"
+            android:layout_width="175dp"
             android:layout_height="wrap_content"
             android:text="BackOn" />
 
         <Button
             android:id="@+id/backoff"
-            android:layout_width="168dp"
+            android:layout_width="175dp"
             android:layout_height="match_parent"
             android:text="BackOff" />
     </TableRow>

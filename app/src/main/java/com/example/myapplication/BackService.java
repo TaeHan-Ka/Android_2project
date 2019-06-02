@@ -2,38 +2,30 @@ package com.example.myapplication;
 
 import android.app.Service;
 import android.content.Intent;
-import android.os.Binder;
 import android.os.IBinder;
-import android.support.annotation.Nullable;
 import android.util.Log;
-import android.view.KeyEvent;
-import android.widget.Toast;
 
 public class BackService extends Service {
 
-    IBinder mBinder = new MyBinder();
-
-    class MyBinder extends Binder {
-        BackService getService() { // 서비스 객체를 리턴
-            return BackService.this;
-        }
-    }
-
-    //@androidx.annotation.Nullable
-    @Nullable
+    private static final String TAG = "";
     @Override
     public IBinder onBind(Intent intent) {
-        return mBinder;
+        // Service 객체와 화면 Activity 사이에서 데이터를 주고받을 때
+        // 데이터를 전달할 필요가 없으면 return null;
+        return null;
     }
     @Override
     public void onCreate() {
         super.onCreate();
     }
-    public int onStartCommand(Intent intent, int flags, int startId) {
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {      // 버튼 클릭시 전달 하여 실행 여기서 !
+        Log.d(TAG, "서비스 시작");
         return super.onStartCommand(intent, flags, startId);
     }
     @Override
     public void onDestroy() {
+        Log.d(TAG, "서비스 종료");
         super.onDestroy();
     }
 }

@@ -8,34 +8,48 @@ import android.net.Uri;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class Main extends AppCompatActivity {
     Intent intent;
-    BackService ms; // 서비스 객체
-    boolean isService = false; // 서비스 중인 확인용
-        ServiceConnection conn = new ServiceConnection() {
-            public void onServiceConnected(ComponentName name, IBinder service) {
-                // 서비스와 연결되었을 때 호출되는 메서드
-                // 서비스 객체를 전역변수로 저장
-                BackService.MyBinder mb = (BackService.MyBinder) service;
-                ms = mb.getService(); // 서비스가 제공하는 메소드 호출하여
-                // 서비스쪽 객체를 전달받을수 있슴
-                isService = true;
-            }
-            public void onServiceDisconnected(ComponentName name) {
-                // 서비스와 연결이 끊겼을 때 호출되는 메서드
-                isService = false;
-            }
-        };
+    public boolean keydown;
+    public boolean keyup;
+    TextView test;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.main);
-        }
+            test = (TextView)findViewById(R.id.test);
+            Button btnStart = (Button) findViewById(R.id.backon);
+            Button btnEnd = (Button) findViewById(R.id.backoff);
 
+            btnStart.setOnClickListener(new View.OnClickListener() {        // Service 는 onCreate 안에서 실행
+                public void onClick(View v) {
+                    // 서비스 시작하기
+                    Intent intent = new Intent(
+                            getApplicationContext(),// Activiey Context
+                            BackService.class); // 이동할 서비스 객체
+                    startService(intent); // 서비스 시작
+                    test.setText("on");
+                }
+            });
+
+            btnEnd.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    // 서비스 종료하기
+                    Intent intent = new Intent(
+                            getApplicationContext(),// Activiey Context
+                            BackService.class); // 이동할 서비스 객체
+                    stopService(intent); // 서비스 종료
+                    test.setText("off");
+                }
+            });
+        }
         public void onClick(View view) {
             switch (view.getId()) {
                 case R.id.setting:
@@ -51,22 +65,32 @@ public class Main extends AppCompatActivity {
                     intent = new Intent(getApplicationContext(), sms.class);   // 완료 후 다음 위치
                     startActivity(intent);
                     break;
-                case R.id.sound:
+                case R.id.sound:         // 사이렌
                     //SoundPool = MediaPlayer.create(this, R.raw.sound);
                     //((MediaPlayer) SoundPool).start();
                     break;
-                case R.id.backoff:
-                    Intent intent = new Intent(Main.this, BackService.class); // 다음넘어갈 컴퍼넌트
-                    bindService(intent, // intent 객체
-                            conn, // 서비스와 연결에 대한 정의
-                            Context.BIND_AUTO_CREATE);
-                    break;
-                case R.id.backon:
-                    unbindService(conn);
-                    break;
             }
-//                Intent intent = new Intent(getApplicationContext(),DB.class);   // 완료 후 다음 위치
-//                startActivity(intent);
         }
+    @Override
+    public boolean onKeyDown(int keycode, KeyEvent event){
+        switch(keycode)
+        {
+            case KeyEvent.KEYCODE_VOLUME_DOWN:       //  볼륨 다운 !
+                keydown = true;
+                Toast.makeText(this, "KeyDown", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(
+                        getApplicationContext(),// Activiey Context
+                        BackService.class); // 이동할 서비스 객체
+                startService(intent); // 서비스 종료
+                //basic_text.setText("Down Key");
+                break;
+            case KeyEvent.KEYCODE_VOLUME_UP:        //  볼륨 업 !
+                keyup = true;
+                Toast.makeText(this, "KeyUp", Toast.LENGTH_SHORT).show();
+                //basic_text.setText("Up Key");
+                break;
+        }
+        return true;
+    }
 }
 

@@ -5,18 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#fff"
     tools:context=".MainActivity">
 
     <ImageButton
         android:id="@+id/sound"
-        android:layout_width="317dp"
-        android:layout_height="171dp"
+        android:layout_width="265dp"
+        android:layout_height="68dp"
         android:layout_marginLeft="55dp"
         android:layout_marginTop="40dp"
-        android:background="#00ff00000"
-        android:scaleType="center"
-        app:srcCompat="@drawable/se"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/police"
         tools:layout_editor_absoluteX="55dp"
         tools:layout_editor_absoluteY="136dp" />
 
@@ -30,12 +28,11 @@
             android:id="@+id/setting"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:background="#00ff0000"
+            android:layout_marginRight="12.5dp"
             android:gravity="center"
             android:onClick="onClick"
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/set"
-            android:layout_marginRight="12.5dp"
             tools:layout_editor_absoluteX="36dp"
             tools:layout_editor_absoluteY="330dp" />
 
@@ -43,11 +40,10 @@
             android:id="@+id/call"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:background="#00ff0000"
+            android:layout_marginLeft="12.5dp"
             android:onClick="onClick"
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/call"
-            android:layout_marginLeft="12.5dp"
             tools:layout_editor_absoluteX="223dp"
             tools:layout_editor_absoluteY="330dp" />
     </TableRow>
@@ -62,7 +58,6 @@
             android:id="@+id/message"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:background="#00ff0000"
             android:onClick="onClick"
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/message"
@@ -74,7 +69,6 @@
             android:id="@+id/map"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:background="#00ff0000"
             android:onClick="onClick"
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/map"
@@ -92,15 +86,21 @@
 
         <Button
             android:id="@+id/backon"
-            android:layout_width="175dp"
+            android:layout_width="178dp"
             android:layout_height="wrap_content"
             android:text="BackOn" />
 
         <Button
             android:id="@+id/backoff"
-            android:layout_width="175dp"
+            android:layout_width="168dp"
             android:layout_height="match_parent"
             android:text="BackOff" />
     </TableRow>
+
+    <TextView
+        android:id="@+id/test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
 
 </LinearLayout>

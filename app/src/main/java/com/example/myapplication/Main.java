@@ -25,6 +25,10 @@ public class Main extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.main);
             test = (TextView)findViewById(R.id.test);
+            
+            music = MediaPlayer.create(this, R.raw.siren);
+            music.setLooping(true);
+            
             Button btnStart = (Button) findViewById(R.id.backon);
             Button btnEnd = (Button) findViewById(R.id.backoff);
 
@@ -66,8 +70,11 @@ public class Main extends AppCompatActivity {
                     startActivity(intent);
                     break;
                 case R.id.sound:         // 사이렌
-                    //SoundPool = MediaPlayer.create(this, R.raw.sound);
-                    //((MediaPlayer) SoundPool).start();
+                    if (!music.isPlaying()) {
+                        music.start();
+                    } else {
+                        music.stop();
+                    }
                     break;
             }
         }

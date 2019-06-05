@@ -73,12 +73,24 @@ public class Main extends AppCompatActivity {
                     if (!music.isPlaying()) {
                         music.start();
                     } else {
-                        music.pause();
+                        music.stop();
+                        Prepare();
                     }
                     break;
             }
         }
     @Override
+    boolean Prepare() {
+        try {
+            music.prepare();
+        } catch (IllegalStateException e) {
+            return false;
+        } catch (IOException e) {
+            return false;
+        }
+        return true;
+    }
+    
     public boolean onKeyDown(int keycode, KeyEvent event){
         switch(keycode)
         {

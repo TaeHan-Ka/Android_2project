@@ -73,7 +73,7 @@ public class Main extends AppCompatActivity {
                     if (!music.isPlaying()) {
                         music.start();
                     } else {
-                        music.stop();
+                        music.pause();
                     }
                     break;
             }

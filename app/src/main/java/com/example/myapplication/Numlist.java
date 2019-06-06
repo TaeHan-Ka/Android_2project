@@ -44,8 +44,20 @@ public class Numlist  extends AppCompatActivity {
         final DBHelper dbHelper = new DBHelper(getApplicationContext(), DBname, null, 1);
         result.setText(dbHelper.getResult());
         listView();
+        
+        list.setOnItemClickListener(new ListView.OnItemClickListener() {   // 리스트 뷰 클릭했을때 이벤트  
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,long arg3) {  
+                // TODO Auto-generated method stub
+                Cursor c = (Cursor)list.getItemAtPosition(arg2);
+                String memoname = c.getString(1).toString();  // ? 1번째 인덱스 값 ?
 
-
+                Toast.makeText(Numlist.this, memoname, Toast.LENGTH_SHORT).show();
+                cphone.setText(memoname);  // 번호 값 가져와서 cphone 텍스트에 작성
+            }
+        });
+        
+        
         Button insert = (Button) findViewById(R.id.insert);   // 데이터 넣기
         insert.setOnClickListener(new View.OnClickListener() {
             @Override

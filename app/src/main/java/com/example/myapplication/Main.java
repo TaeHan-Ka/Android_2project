@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 public class Main extends AppCompatActivity {
     Intent intent;
+    MediaPlayer music;
     public boolean keydown;
     public boolean keyup;
     TextView test;

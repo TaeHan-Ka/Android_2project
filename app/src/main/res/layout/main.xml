@@ -16,19 +16,19 @@
         <ImageButton
             android:id="@+id/sound"
             android:layout_width="145dp"
-            android:layout_height="145dp"
+            android:layout_height="136dp"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
             android:background="#00ff0000"
             android:onClick="onClick"
             android:scaleType="center"
-            app:srcCompat="@drawable/map"
+            app:srcCompat="@drawable/p"
             tools:layout_editor_absoluteX="55dp"
             tools:layout_editor_absoluteY="136dp" />
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="133dp"
             android:layout_marginTop="10dp"
             android:gravity="center">
 
@@ -60,7 +60,7 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="141dp"
             android:layout_marginTop="10dp"
             android:gravity="center">
 
@@ -108,22 +108,25 @@
                 android:layout_height="match_parent"
                 android:text="BackOff" />
         </TableRow>
+
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="114dp"
             android:layout_marginTop="15dp"
             android:gravity="center">
-        <TextView
-            android:id="@+id/t"
-            android:layout_marginLeft="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="설정된 번호:" />
-        <TextView
-            android:id="@+id/test"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+
+            <TextView
+                android:id="@+id/t"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="설정된 번호:" />
+
+            <TextView
+                android:id="@+id/test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
         </TableRow>
     </LinearLayout>
 </LinearLayout>

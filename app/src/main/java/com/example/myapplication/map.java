@@ -172,7 +172,7 @@ public class map extends AppCompatActivity
 
         //mGoogleMap.getUiSettings().setZoomControlsEnabled(false);
         mGoogleMap.getUiSettings().setMyLocationButtonEnabled(true);
-        mGoogleMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+        mGoogleMap.animateCamera(CameraUpdateFactory.zoomTo(16));
         mGoogleMap.setOnMyLocationButtonClickListener(new GoogleMap.OnMyLocationButtonClickListener() {
 
             @Override
@@ -395,7 +395,7 @@ public class map extends AppCompatActivity
 
             Log.d(TAG, "setCurrentLocation :  mGoogleMap moveCamera "
                     + location.getLatitude() + " " + location.getLongitude());
-            // CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(currentLatLng, 16);
+            // CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(currentLatLng, 15);
             CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLng(currentLatLng);
             mGoogleMap.moveCamera(cameraUpdate);
         }
@@ -422,7 +422,7 @@ public class map extends AppCompatActivity
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
         currentMarker = mGoogleMap.addMarker(markerOptions);
 
-        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(DEFAULT_LOCATION, 15);
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(DEFAULT_LOCATION, 16);
         mGoogleMap.moveCamera(cameraUpdate);
 
     }

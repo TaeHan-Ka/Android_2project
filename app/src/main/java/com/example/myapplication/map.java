@@ -395,7 +395,7 @@ public class map extends AppCompatActivity
 
             Log.d(TAG, "setCurrentLocation :  mGoogleMap moveCamera "
                     + location.getLatitude() + " " + location.getLongitude());
-            // CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(currentLatLng, 15);
+            // CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(currentLatLng, 16);
             CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLng(currentLatLng);
             mGoogleMap.moveCamera(cameraUpdate);
         }

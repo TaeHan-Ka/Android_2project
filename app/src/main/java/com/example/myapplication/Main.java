@@ -81,6 +81,10 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
                 intent = new Intent(getApplicationContext(), sms.class);   // 완료 후 다음 위치
                 startActivity(intent);
                 break;
+            case R.id.map:
+                intent = new Intent(getApplicationContext(), map.class);
+                startActivity(intent);
+                break;
             case R.id.sound:         // 사이렌
                 if (!music.isPlaying()) {
                     music.start();

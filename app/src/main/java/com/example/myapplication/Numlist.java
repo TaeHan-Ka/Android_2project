@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -8,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListAdapter;
@@ -22,10 +24,12 @@ public class Numlist  extends AppCompatActivity {
 
     EditText phone;
     EditText name;
+    TextView cphone;
     private ArrayList<HashMap<String,String>> Data = new ArrayList<HashMap<String, String>>();
-    private HashMap<String,String> InputData1 = new HashMap<>();
-    private HashMap<String,String> InputData2 = new HashMap<>();
+    private HashMap<String,String> Data1 = new HashMap<>();
+    private HashMap<String,String> Data2 = new HashMap<>();
 
+    private ArrayList<Phone> listitem = new ArrayList<Phone>();
 
     ListView list;
     ListAdapter adapter;
@@ -37,27 +41,39 @@ public class Numlist  extends AppCompatActivity {
         setContentView(R.layout.numlist);
         name = (EditText) findViewById(R.id.note);
         phone = (EditText) findViewById(R.id.note2);
-        final TextView result = (TextView) findViewById(R.id.result);
+
         list = (ListView) findViewById(R.id.list);
         personList = new ArrayList<HashMap<String,String>>();
 
         final DBHelper dbHelper = new DBHelper(getApplicationContext(), DBname, null, 1);
-        result.setText(dbHelper.getResult());
-        listView();
-        
-        list.setOnItemClickListener(new ListView.OnItemClickListener() {   // 리스트 뷰 클릭했을때 이벤트  
-            @Override
-            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,long arg3) {  
-                // TODO Auto-generated method stub
-                Cursor c = (Cursor)list.getItemAtPosition(arg2);
-                String memoname = c.getString(1).toString();  // ? 1번째 인덱스 값 ?
 
-                Toast.makeText(Numlist.this, memoname, Toast.LENGTH_SHORT).show();
-                cphone.setText(memoname);  // 번호 값 가져와서 cphone 텍스트에 작성
+        listView();
+//        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+//                //클릭한 아이템의 문자열을 가져옴
+//                listitem.set() = (String)adapterView.getItemAtPosition(0);
+//              //  String vo = (String)adapterView.getAdapter().getItem(2);
+//
+//
+//                //텍스트뷰에 출력
+//                cphone.setText(selected_item);
+//            }
+//        });
+        FriendsAdapter adapter = new FriendsAdapter(this, R.layout.list_item, listitem);
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView parent, View view, int position, long id) {
+                Intent intent = new Intent( getApplicationContext(), Main.class);
+                intent.putExtra("phone", listitem.get(position).getPhone());
+                startActivity(intent);
             }
         });
-        
-        
+
+
         Button insert = (Button) findViewById(R.id.insert);   // 데이터 넣기
         insert.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +82,6 @@ public class Numlist  extends AppCompatActivity {
                 String price = phone.getText().toString();
 
                 dbHelper.insert(item, price);
-                result.setText(dbHelper.getResult());
                 listView();
                 name.setText("");
                 phone.setText("");
@@ -79,7 +94,6 @@ public class Numlist  extends AppCompatActivity {
             public void onClick(View v) {
                 String item = name.getText().toString();
                 dbHelper.delete(item);
-                result.setText(dbHelper.getResult());
                 listView();
             }
         });
@@ -93,7 +107,6 @@ public class Numlist  extends AppCompatActivity {
                 String item = name.getText().toString();
                 String price = phone.getText().toString();
                 dbHelper.update(item, price);
-                result.setText(dbHelper.getResult());
                 listView();
             }
         });
@@ -115,6 +128,9 @@ public class Numlist  extends AppCompatActivity {
 
                         persons.put("name", n);
                         persons.put("phone", p);
+                        Phone p1 = new Phone();
+                        p1.setPhone(p);
+                        listitem.add(p1);
 
                         personList.add(persons);
 

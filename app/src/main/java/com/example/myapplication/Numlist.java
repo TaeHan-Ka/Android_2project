@@ -48,19 +48,6 @@ public class Numlist  extends AppCompatActivity {
         final DBHelper dbHelper = new DBHelper(getApplicationContext(), DBname, null, 1);
 
         listView();
-//        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-//                //클릭한 아이템의 문자열을 가져옴
-//                listitem.set() = (String)adapterView.getItemAtPosition(0);
-//              //  String vo = (String)adapterView.getAdapter().getItem(2);
-//
-//
-//                //텍스트뷰에 출력
-//                cphone.setText(selected_item);
-//            }
-//        });
         FriendsAdapter adapter = new FriendsAdapter(this, R.layout.list_item, listitem);
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -127,7 +114,7 @@ public class Numlist  extends AppCompatActivity {
                         HashMap<String, String> persons = new HashMap<String, String>();
 
                         persons.put("name", n);
-                        persons.put("phone", p);
+                        persons.put("phone", "0"+p);
                         Phone p1 = new Phone();
                         p1.setPhone(p);
                         listitem.add(p1);

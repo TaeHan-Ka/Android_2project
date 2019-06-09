@@ -24,27 +24,29 @@
         android:layout_height="129dp">
 
         <EditText
-            android:id="@+id/note"
-            android:layout_width="162dp"
+            android:id="@+id/name"
+            android:layout_width="100dp"
             android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="50dp"
             android:breakStrategy="balanced"
             android:ems="10"
-            android:hint="이름을 적어주세요"
+            android:hint="이름"
             android:privateImeOptions="defaultInputmode=korean"
             tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="77dp" />
+            tools:layout_editor_absoluteY="70dp" />
 
         <EditText
-            android:id="@+id/note2"
-            android:layout_width="248dp"
+            android:id="@+id/phone"
+            android:layout_width="240dp"
             android:layout_height="50dp"
             android:layout_marginTop="50dp"
+            android:layout_marginRight="10dp"
             android:layout_marginBottom="50dp"
             android:breakStrategy="balanced"
             android:ems="10"
-            android:hint="'-'없이 번호를 입력해주세요."
+            android:hint="'-'없이 번호 입력"
             android:privateImeOptions="defaultInputmode=korean"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="77dp" />

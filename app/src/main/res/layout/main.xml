@@ -21,8 +21,8 @@
             android:layout_marginTop="15dp"
             android:background="#00ff0000"
             android:onClick="onClick"
-            android:scaleType="center"
-            app:srcCompat="@drawable/p"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/se"
             tools:layout_editor_absoluteX="55dp"
             tools:layout_editor_absoluteY="136dp" />
 
